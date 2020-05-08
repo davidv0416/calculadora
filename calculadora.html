@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <form id="form1">
+        <div class="container">
+            <div>
+                <br>
+                <br>
+            </div>
+            <div class="form-group">
+                <output class="form-control" id="textoPantalla"></output>
+            </div>
+            <table class="table table-striped">
+                <tr class="warning">
+                    <div class="form-group has-error">
+                        <td><input type="button" value="7" class="form-control" onclick="concatenar('7')" /></td>
+                        <td><input type="button" value="8" class="form-control" onclick="concatenar('8')" /></td>
+                        <td><input type="button" value="9" class="form-control" onclick="concatenar('9')" /></td>
+                        <td><input type="button" value="DEL" class="form-control" onclick="retro()" /></td>
+                        <td><input type="button" value="AC" class="form-control" onclick="borradoTotal()" /></td>
+                    </div>
+                </tr>
+
+                <tr class="danger">
+                    <div class="form-group has-error">
+                        <td><input type="button" value="4" class="form-control" onclick="concatenar('4')" /></td>
+                        <td><input type="button" value="5" class="form-control" onclick="concatenar('5')" /></td>
+                        <td><input type="button" value="6" class="form-control" onclick="concatenar('6')" /></td>
+                        <td><input type="button" value="+" class="form-control" onclick="concatenar('+')" /></td>
+                        <td><input type="button" value="-" class="form-control" onclick="concatenar('-')" /></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div class="form-group has-error">
+                        <td><input type="button" value="1" class="form-control" onclick="concatenar('1')" /></td>
+                        <td><input type="button" value="2" class="form-control" onclick="concatenar('2')" /></td>
+                        <td><input type="button" value="3" class="form-control" onclick="concatenar('3')" /></td>
+                        <td><input type="button" value="*" class="form-control" onclick="concatenar('*')" /></td>
+                        <td><input type="button" value="/" class="form-control" onclick="concatenar('/')" /></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div class="form-group has-error">
+                        <td><input type="button" value="." class="form-control" onclick="concatenar('.')" /></td>
+                        <td><input type="button" value="0" class="form-control" onclick="concatenar('0')" /></td>
+                        <td><input type="button" value="=" class="form-control" onclick="igualar('=')" /></td>
+                        <td><input type="button" value="^" class="form-control" onclick="potencia()" /></td>
+                        <td><input type="button" value="√" class="form-control" onclick="raizc()" /></td>
+                    </div>
+                </tr>
+
+            </table>
+        </div>
+    </form>
+    <script>
+        function concatenar(ope) {
+            {
+                pantalla = document.getElementById("textoPantalla").innerHTML = document.getElementById("textoPantalla").innerHTML + ope;
+            }
+        }
+
+        function retro() {
+            x = document.getElementById("textoPantalla").innerHTML
+            cifras = x.length;
+            br = x.substr(cifras - 1, cifras)
+            x = x.substr(0, cifras - 1)
+            if (x == "") {
+                x = "";
+            }
+            if (br == ".") {
+                coma = 0;
+            }
+            pantalla = document.getElementById("textoPantalla").innerHTML = document.getElementById("textoPantalla").innerHTML = x;
+        }
+
+        function borradoTotal() {
+            pantalla = document.getElementById("textoPantalla").innerHTML = document.getElementById("textoPantalla").innerHTML = "";
+        }
+
+        function igualar() {
+            document.getElementById("textoPantalla").innerHTML = eval(document.getElementById("textoPantalla").innerHTML);
+        }
+
+        function raizc() {
+            x = document.getElementById("textoPantalla").innerHTML;
+            z = Math.sqrt(x);
+            document.getElementById("textoPantalla").innerHTML = z;
+        }
+
+        function potencia() {
+            x = document.getElementById("textoPantalla").innerHTML;
+            z = Math.pow(x, y);
+            document.getElementById("textoPantalla").innerHTML = z;
+        }
+    </script>
+</body>
+
+</html>
